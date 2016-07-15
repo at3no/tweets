@@ -1,0 +1,25 @@
+<h2>ツイート一覧</h2>
+
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+<p class="caution"><%= notice %></p>
+
+<%= link_to "ツイート", new_tweet_path, class: 'btn btn-primary btn-block mb20' %>
+
+<% @tweets.each do |tweet| %>
+  <div class="row mb20">
+  <p><%= tweet.content %></p>
+  <div class="btn_pos">
+  <%= link_to "ツイートを編集する", edit_tweet_path(tweet.id), data: { confirm: '本当に編集していいですか？' }, class: 'btn btn-default btn-sm btn-success' %>
+  <%= link_to "ツイートを削除する", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-default btn-sm btn btn-danger' %>
+  <!-- /.btn_pos --></div>
+  <!-- /.row --></div>
+<% end %>
+
+<%= link_to "ツイート", new_tweet_path, class: 'btn btn-primary btn-block' %>
+<!-- /.warapper --></div>
+<!-- /.container --></div>
+
+<div id="page-top-btn" class="page-top-btn">
+  <p><a class="move-page-top" id="move-page-top">▲</a></p>
+</div>

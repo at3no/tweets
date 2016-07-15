@@ -1,0 +1,19 @@
+<%= form_for(@tweet, url: choose_new_or_edit) do |f| %>
+  <% if @tweet.errors.any? %>
+  <div id="error_explanation">
+      <p class="caution"><%= @tweet.errors.count %>件のエラーがあります</p>
+      
+      <ul class="mb15">
+          <% @tweet.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+      </ul>
+  </div>
+  <% end %>
+  
+  <%= f.label :ツイート内容 %>
+  <%= f.text_field :content, class: 'form-control mb20' %>
+  <%= f.submit 'ツイート', class: 'btn btn-primary btn-block' %>
+<% end %>
+
+<%= link_to "ツイート一覧画面に戻る", tweets_path, class: 'btn btn-warning btn-block mt30' %>
